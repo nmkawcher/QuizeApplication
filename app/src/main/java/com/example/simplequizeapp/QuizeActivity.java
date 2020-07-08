@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -89,6 +90,9 @@ public class QuizeActivity extends AppCompatActivity {
         String categoryName = intent.getStringExtra(StartingScreen.EXTRA_CATEGORY_NAME);
         String difficulty = intent.getStringExtra(StartingScreen.EXTRA_DIFFICULTY);
 
+
+
+
         textViewCategory.setText("Category: " + categoryName);
         textViewDifficulty.setText("Difficulty: " + difficulty);
 
@@ -120,7 +124,7 @@ public class QuizeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!answered) {
-                    if (rb1.isChecked() || rb2.isChecked() || rb3.isChecked()) {
+                    if (rb1.isChecked() || rb2.isChecked() || rb3.isChecked() || rb4.isChecked()) {
                         checkAnswer();
                     } else {
                         Toast.makeText(getApplicationContext(),
@@ -137,6 +141,7 @@ public class QuizeActivity extends AppCompatActivity {
         rb1.setTextColor(textColorDefaultRb);
         rb2.setTextColor(textColorDefaultRb);
         rb3.setTextColor(textColorDefaultRb);
+        rb4.setTextColor(textColorDefaultRb);
         rbGroup.clearCheck();
 
         if (questionCounter < questionCountTotal) {
@@ -230,6 +235,7 @@ public class QuizeActivity extends AppCompatActivity {
 
             case 4:
                 rb4.setTextColor(Color.GREEN);
+                textViewQuestion.setText("Answer 4 is correct");
         }
 
         if (questionCounter < questionCountTotal) {
